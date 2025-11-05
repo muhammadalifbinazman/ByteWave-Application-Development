@@ -66,6 +66,27 @@ if ($checkAdmin->num_rows == 0) {
     echo "ℹ️ Admin account already exists.<br>";
 }
 
+// === Create Events Table ===
+$events = "CREATE TABLE IF NOT EXISTS events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_name VARCHAR(200) NOT NULL,
+    description TEXT,
+    event_date DATE,
+    event_time TIME,
+    location VARCHAR(150),
+    director_needed INT DEFAULT 1,
+    helper_needed INT DEFAULT 5,
+    created_by VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+if ($conn->query($events) === TRUE) {
+    echo "✅ Table 'events' created or already exists.<br>";
+} else {
+    echo "❌ Error creating events table: " . $conn->error . "<br>";
+}
+
+
 echo "<hr><b>🎉 Database setup completed successfully!</b>";
 $conn->close();
-?>
+?>;
+
