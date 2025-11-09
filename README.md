@@ -8,6 +8,8 @@ If your XAMPP MySQL uses the default 3306, update the port number in:
 config.php
 $port = 3307;
 
+Also rename the folder in htdocs to name GPSphere
+
 Change 3307 → 3306 (for normal  3306 port)
 
 
